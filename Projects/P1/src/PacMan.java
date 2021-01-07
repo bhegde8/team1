@@ -15,7 +15,20 @@ public class PacMan{
 	}
 
 	public ArrayList<Location> get_valid_moves() {
-		return null;	
+		ArrayList<Location> valid_moves = new ArrayList<Location>();
+		valid_moves.add(new Location(this.myLoc.x - 1, this.myLoc.y));
+		valid_moves.add(new Location(this.myLoc.x + 1, this.myLoc.y));
+		valid_moves.add(new Location(this.myLoc.x, this.myLoc.y - 1));
+		valid_moves.add(new Location(this.myLoc.x, this.myLoc.y + 1));
+		
+		for (Location move: valid_moves) {
+			if (!this.myMap.getLoc(move).contains(Map.Type.EMPTY)) {
+				if (!this.myMap.getLoc(move).contains(Map.Type.COOKIE)) {
+					valid_moves.remove(move);
+				}
+			}
+		}
+		return valid_moves;	
 	}
 
 	public boolean move() {
