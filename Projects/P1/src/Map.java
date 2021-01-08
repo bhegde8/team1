@@ -60,7 +60,14 @@ public class Map{
 	
 	public HashSet<Type> getLoc(Location loc) {
 		//wallSet and emptySet will help you write this method
-		return null;
+		if (field.get(loc) == Type.EMPTY ){
+			return emptySet; 
+		}
+		if (field.get(loc) == Type.WALL){
+			return wallSet; 
+		}
+		return field.get(loc);  
+
 	}
 
 	public boolean attack(String Name) {
