@@ -72,7 +72,18 @@ public class Map{
 
 	public boolean attack(String Name) {
 		//update gameOver
-		return false;
+		Location loc = locations.get(Name);
+		
+		Ghost gh = new Ghost(name, loc, this);
+		if (gh.attack == false) {
+		
+			return false;
+		}
+		gameOver = true; 
+		
+
+		
+		return true;
 	}
 	
 	public JComponent eatCookie(String name) {
