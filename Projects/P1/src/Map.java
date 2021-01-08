@@ -60,13 +60,14 @@ public class Map{
 	
 	public HashSet<Type> getLoc(Location loc) {
 		//wallSet and emptySet will help you write this method
-		if (field.get(loc) == Type.EMPTY ){
+		HashSet<Type> set = field.get(loc); 
+		if (set == Type.EMPTY ){
 			return emptySet; 
 		}
-		if (field.get(loc) == Type.WALL){
+		if (set == Type.WALL){
 			return wallSet; 
 		}
-		return field.get(loc);  
+		return set;  
 
 	}
 
