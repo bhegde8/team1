@@ -55,18 +55,48 @@ public class Map{
 	public boolean move(String name, Location loc, Type type) {
 		//update locations, components, and field
 		//use the setLocation method for the component to move it to the new location
+		
+		Location old = locations.get(name);	 
+        if (type == Type.PACMAN){
+			PacMan pacman = new PacMan(name, old, this);
+		
+			if (pacman.get_valid_moves().contains(loc)){
+				locations.put(name, loc);
+				components.get(name).setLocation(loc.x, loc.y);
+				field.get(loc).add(type);  
+				return true;
+			}
+			
+		}
+
+		if (type == Type.GHOST){
+			Ghost ghost = new Ghost(name, old, this);
+		
+			if (ghost.get_valid_moves().contains(loc)){
+				locations.put(name, loc);
+				components.get(name).setLocation(loc.x, loc.y);
+
+				field.get(loc).add(type);  
+				return true;
+			}
+			
+		}
 		return false;
+
+			
+		
 	}
 	
 	public HashSet<Type> getLoc(Location loc) {
 		//wallSet and emptySet will help you write this method
-		if (field.get(loc).contains(Type.EMPTY)){
+		HashSet<Type> set = field.get(loc); 
+		if (set.contains(Type.EMPTY) ){
 			return emptySet; 
 		}
-		if (field.get(loc).contains(Type.WALL)){
+		if (set.contains(Type.WALL)){
 			return wallSet; 
 		}
-		return field.get(loc);  
+		return set;  
 
 	}
 
