@@ -60,10 +60,10 @@ public class Map{
 	
 	public HashSet<Type> getLoc(Location loc) {
 		//wallSet and emptySet will help you write this method
-		if (field.get(loc) == Type.EMPTY ){
+		if (field.get(loc).contains(Type.EMPTY)){
 			return emptySet; 
 		}
-		if (field.get(loc) == Type.WALL){
+		if (field.get(loc).contains(Type.WALL)){
 			return wallSet; 
 		}
 		return field.get(loc);  
@@ -73,16 +73,11 @@ public class Map{
 	public boolean attack(String Name) {
 		//update gameOver
 		Location loc = locations.get(Name);
-		
-		Ghost gh = new Ghost(name, loc, this);
-		if (gh.attack == false) {
-		
+		Ghost gh = new Ghost(Name, loc, this);
+		if (gh.attack() == false) {	
 			return false;
 		}
-		gameOver = true; 
-		
-
-		
+		gameOver = true; 	
 		return true;
 	}
 	
