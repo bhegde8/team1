@@ -58,15 +58,13 @@ public class Map{
 		
 		Location old = locations.get(name);	 
         if (type == Type.PACMAN){
-			PacMan pacman = new Pacman(name, old, this);
+			PacMan pacman = new PacMan(name, old, this);
 		
-			if (pacman.get_valid_move().contains(loc)){
+			if (pacman.get_valid_moves().contains(loc)){
 				locations.put(name, loc);
 				components.get(name).setLocation(loc.x, loc.y);
-
 				field.get(loc).add(type);  
 				return true;
-
 			}
 			
 		}
@@ -74,7 +72,7 @@ public class Map{
 		if (type == Type.GHOST){
 			Ghost ghost = new Ghost(name, old, this);
 		
-			if (ghost.get_valid_move().contains(loc)){
+			if (ghost.get_valid_moves().contains(loc)){
 				locations.put(name, loc);
 				components.get(name).setLocation(loc.x, loc.y);
 
@@ -92,10 +90,10 @@ public class Map{
 	public HashSet<Type> getLoc(Location loc) {
 		//wallSet and emptySet will help you write this method
 		HashSet<Type> set = field.get(loc); 
-		if (set == Type.EMPTY ){
+		if (set.contains(Type.EMPTY) ){
 			return emptySet; 
 		}
-		if (set == Type.WALL){
+		if (set.contains(Type.WALL)){
 			return wallSet; 
 		}
 		return set;  
