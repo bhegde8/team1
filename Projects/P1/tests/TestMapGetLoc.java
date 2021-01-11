@@ -11,8 +11,8 @@ public class TestMapGetLoc {
 		Ghost ghost = frame.addGhost(new Location(2,4), "Luke", Color.red);
 		PacMan pacman = frame.addPacMan(new Location(4,6));
 
-		assertEquals(map.getLoc(new Location (2,4)), Map.Type.Ghost); 
-		assertEquals(map.getLoc(new Location (4,6)), Map.Type.PacMan);
+		assertEquals(map.getLoc(new Location (2,4)), Map.Type.GHOST); 
+		assertEquals(map.getLoc(new Location (4,6)), Map.Type.PACMAN);
 
 	}
 }
