@@ -15,6 +15,5 @@ public class TestMapGetLoc extends TestCase{
 		assertTrue(map.getLoc(new Location (1,1)).contains(Map.Type.GHOST)); 
 		assertTrue(map.getLoc(new Location (3,3)).contains(Map.Type.PACMAN));
 		assertFalse(map.getLoc(new Location (3,3)).contains(Map.Type.GHOST));
-
 	}
 }
