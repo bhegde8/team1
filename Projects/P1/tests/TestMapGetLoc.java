@@ -1,20 +1,19 @@
 import junit.framework.*;
 import java.awt.Color;
 import java.io.*;
+import org.junit.Assert.*;
 
 
-public class TestMapGetLoc {
+public class TestMapGetLoc extends TestCase{
 	
-	public void testMapGetLoc() {
+	public void testMapGetLoc() throws FileNotFoundException{
 		NoFrame frame = new NoFrame();
 		Map map = frame.getMap();
-		frame.addGhost(new Location(2,4), "Luke", Color.red);
-		frame.addPacMan(new Location(4,6));
-		
+		frame.addGhost(new Location(1,1), "Luke", Color.red);
+		frame.addPacMan(new Location(3,3));
 
-		assertEquals(map.getLoc(new Location (2,4)), Map.Type.GHOST); 
-		assertEquals(map.getLoc(new Location (4,6)), Map.Type.PACMAN);
-		
-
+		assertTrue(map.getLoc(new Location (1,1)).contains(Map.Type.GHOST)); 
+		assertTrue(map.getLoc(new Location (3,3)).contains(Map.Type.PACMAN));
+		assertFalse(map.getLoc(new Location (3,3)).contains(Map.Type.GHOST));
 	}
 }

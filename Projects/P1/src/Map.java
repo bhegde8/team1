@@ -61,10 +61,10 @@ public class Map{
 	public HashSet<Type> getLoc(Location loc) {
 		//wallSet and emptySet will help you write this method
 		HashSet<Type> set = field.get(loc); 
-		if (set == Type.EMPTY ){
+		if (set.contains(Type.EMPTY)){
 			return emptySet; 
 		}
-		if (set == Type.WALL){
+		if (set.contains(Type.WALL)){
 			return wallSet; 
 		}
 		return set;  
