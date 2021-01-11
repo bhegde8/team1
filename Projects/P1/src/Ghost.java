@@ -13,11 +13,31 @@ public class Ghost{
 	}
 
 	public ArrayList<Location> get_valid_moves() {
-		return null;
+		ArrayList<Location> locs = new ArrayList<Location>();
+
+		if(!myMap.getLoc(myLoc.shift(0, 1)).contains(Map.Type.WALL)){
+			locs.add(myLoc.shift(0, 1));
+		}
+		if(!myMap.getLoc(myLoc.shift(0, -1)).contains(Map.Type.WALL)){
+			locs.add(myLoc.shift(0, -1));
+		}
+		if(!myMap.getLoc(myLoc.shift(1, 0)).contains(Map.Type.WALL)){
+			locs.add(myLoc.shift(1, 0));
+		}
+		if(!myMap.getLoc(myLoc.shift(-1, 0)).contains(Map.Type.WALL)){
+			locs.add(myLoc.shift(-1, 0));
+		}
+		return locs;
 	}
 
 	public boolean move() {
-		return false;
+		ArrayList<Location> locs = get_valid_moves();
+
+		if(locs.isEmpty()){
+			return false;
+		}
+		myLoc = locs.get(0);
+		return true;
 	}
 
 	public boolean is_pacman_in_range() { 

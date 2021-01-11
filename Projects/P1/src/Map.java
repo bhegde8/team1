@@ -90,7 +90,8 @@ public class Map{
 	public HashSet<Type> getLoc(Location loc) {
 		//wallSet and emptySet will help you write this method
 		HashSet<Type> set = field.get(loc); 
-		if (set.contains(Type.EMPTY) ){
+
+		if (set.contains(Type.EMPTY)){
 			return emptySet; 
 		}
 		if (set.contains(Type.WALL)){
@@ -102,13 +103,7 @@ public class Map{
 
 	public boolean attack(String Name) {
 		//update gameOver
-		Location loc = locations.get(Name);
-		Ghost gh = new Ghost(Name, loc, this);
-		if (gh.attack() == false) {	
-			return false;
-		}
-		gameOver = true; 	
-		return true;
+		return false;
 	}
 	
 	public JComponent eatCookie(String name) {
