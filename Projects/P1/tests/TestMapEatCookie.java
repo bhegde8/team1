@@ -5,6 +5,9 @@ import java.io.*;
 public class TestMapEatCookie {
 	
 	public void testMapEatCookie() {
-		return null;
+		frame = new NoFrame();
+		mymap = frame.getMap();
+		frame.addPacMan(new Location(1,1));
+		assertTrue(mymap.eatCookie("pacman") != null);
 	}
 }

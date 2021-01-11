@@ -78,6 +78,10 @@ public class Map{
 	public JComponent eatCookie(String name) {
 		//update locations, components, field, and cookies
 		//the id for a cookie at (10, 1) is tok_x10_y1
-		return null;
+		Location loc = locations.get(name);
+		String tokid = "tok_x"+loc.x+"_y"+loc.y;
+		field.get(loc).remove(Map.Type.COOKIE);	
+		cookies++;
+		return components.get(tokid);
 	}
 }
