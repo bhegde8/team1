@@ -21,12 +21,24 @@ public class Ghost{
 	}
 
 	public boolean is_pacman_in_range() { 
+		if (this.myMap.getLoc(new Location(this.myLoc.x+1,this.myLoc.y)).contains(Map.Type.PACMAN)) {
+			return true;
+		}
+		if (this.myMap.getLoc(new Location(this.myLoc.x-1,this.myLoc.y)).contains(Map.Type.PACMAN)) {
+			return true;
+		}
+		if (this.myMap.getLoc(new Location(this.myLoc.x,this.myLoc.y+1)).contains(Map.Type.PACMAN)) {
+			return true;
+		}
+		if (this.myMap.getLoc(new Location(this.myLoc.x,this.myLoc.y-1)).contains(Map.Type.PACMAN)) {
+			return true;
+		}
 		return false;
 	}
 
 	public boolean attack() {
 		if (is_pacman_in_range()) {
-			return this.myMap.attack(this.myName);
+			return true;
 		}
 		return false;
 	}
