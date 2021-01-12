@@ -14,6 +14,7 @@ Haley Greenspan,Xavier Warmerdam *Fill in team names
 To start, run and compile the following files using the following commands:
 
 javac -cp "src/" src/*.java
+
 java -cp "src/" StartMenu
   
 
