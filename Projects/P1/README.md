@@ -11,11 +11,13 @@ Haley Greenspan,Xavier Warmerdam *Fill in team names
 
 ## Instructions on running code
 
-To start, run and compile the following files using the following commands:
+To start, run and compile the following files using the following commands and follow the menu:
 
+```bash
 javac -cp "src/" src/*.java
-
 java -cp "src/" StartMenu
+```
+
   
 
 
