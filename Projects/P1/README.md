@@ -6,7 +6,8 @@ Haley Greenspan,Xavier Warmerdam , Vi Nguyen
 
 ## Image of code playing PacMan
 
-![Pacman game](Projects/P1/Pacman.png)
+![Pacman game](https://github.com/cmsc388T/team1/Projects/P1/Pacman.png)
+)
 
 
 ## Instructions on running code
