@@ -1,7 +1,7 @@
 # PacMan Simulation - Team 1, Project 1
 
 
-Haley Greenspan,*Fill in team names
+Haley Greenspan,Xavier Warmerdam *Fill in team names
 
 
 ## Image of code playing PacMan
@@ -11,8 +11,11 @@ Haley Greenspan,*Fill in team names
 
 ## Instructions on running code
 
-* A section on how to run the code from the command line
-  * include a code block
+To start, run and compile the following files using the following commands:
+
+javac -cp "src/" src/*.java
+java -cp "src/" StartMenu
+  
 
 
 ## Function & Test descriptions
