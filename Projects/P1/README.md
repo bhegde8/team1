@@ -1,12 +1,12 @@
 # PacMan Simulation - Team 1, Project 1
 
 
-Haley Greenspan,Xavier Warmerdam *Fill in team names
+Haley Greenspan,Xavier Warmerdam , Vi Nguyen
 
 
 ## Image of code playing PacMan
 
-* An image of your code playing PacMan
+![Pacman game](Projects/P1/Pacman.png)
 
 
 ## Instructions on running code
