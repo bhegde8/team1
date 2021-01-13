@@ -89,12 +89,8 @@ public class Map{
 			return wallSet;
 		}
 
-		if (!field.containsKey(loc)) {
+		if (!field.containsKey(loc) || field.get(loc).size()==0) {
 			return emptySet;
-		}
-
-		if (field.get(loc).size() == 0) {
-			field.get(loc).add(Type.EMPTY);
 		}
 
 		return field.get(loc);

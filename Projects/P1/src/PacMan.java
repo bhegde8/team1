@@ -33,6 +33,7 @@ public class PacMan{
 						!this.myMap.getLoc(move).contains(Map.Type.GHOST)	)){
 					valid_moves.add(move);
 				}
+		}
 		
 		return valid_moves;	
 	}
