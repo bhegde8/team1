@@ -1,4 +1,5 @@
 import java.util.HashSet;
+import java.util.Map;
 import java.util.ArrayList;
 
 public class Ghost{
@@ -13,31 +14,33 @@ public class Ghost{
 	}
 
 	public ArrayList<Location> get_valid_moves() {
-		ArrayList<Location> locs = new ArrayList<Location>();
-
-		if(!myMap.getLoc(myLoc.shift(0, 1)).contains(Map.Type.WALL)){
-			locs.add(myLoc.shift(0, 1));
-		}
-		if(!myMap.getLoc(myLoc.shift(0, -1)).contains(Map.Type.WALL)){
-			locs.add(myLoc.shift(0, -1));
-		}
-		if(!myMap.getLoc(myLoc.shift(1, 0)).contains(Map.Type.WALL)){
-			locs.add(myLoc.shift(1, 0));
-		}
-		if(!myMap.getLoc(myLoc.shift(-1, 0)).contains(Map.Type.WALL)){
-			locs.add(myLoc.shift(-1, 0));
-		}
-		return locs;
+		ArrayList<Location> moves = new ArrayList<Location>();
+		ArrayList<Location> valid_moves = new ArrayList<Location>();
+		moves.add(new Location(this.myLoc.x - 1, this.myLoc.y));
+		moves.add(new Location(this.myLoc.x + 1, this.myLoc.y));
+		moves.add(new Location(this.myLoc.x, this.myLoc.y - 1));
+		moves.add(new Location(this.myLoc.x, this.myLoc.y + 1));
+		moves.add(new Location(this.myLoc.x - 1, this.myLoc.y - 1));
+		moves.add(new Location(this.myLoc.x + 1, this.myLoc.y + 1));
+		moves.add(new Location(this.myLoc.x + 1, this.myLoc.y - 1));
+		moves.add(new Location(this.myLoc.x - 1, this.myLoc.y + 1));
+			
+		for (Location move: moves) {
+			if (this.myMap.getLoc(move).contains(Map.Type.EMPTY) || 
+				(this.myMap.getLoc(move).contains(Map.Type.COOKIE)}
+					valid_moves.add(move);
+				}
+			}
+		return valid_moves;	
 	}
 
 	public boolean move() {
 		ArrayList<Location> locs = get_valid_moves();
-
-		if(locs.isEmpty()){
+		if (locs.isEmpty()){
 			return false;
 		}
 		myLoc = locs.get(0);
-		return true;
+		return myMap.move(myName, myLoc, myMap.Type.GHOST);
 	}
 
 	public boolean is_pacman_in_range() { 
@@ -53,12 +56,24 @@ public class Ghost{
 		if (this.myMap.getLoc(new Location(this.myLoc.x,this.myLoc.y-1)).contains(Map.Type.PACMAN)) {
 			return true;
 		}
+		if (this.myMap.getLoc(new Location(this.myLoc.x-1,this.myLoc.y-1)).contains(Map.Type.PACMAN)) {
+			return true;
+		}
+		if (this.myMap.getLoc(new Location(this.myLoc.x-1,this.myLoc.y+1)).contains(Map.Type.PACMAN)) {
+			return true;
+		}
+		if (this.myMap.getLoc(new Location(this.myLoc.x+1,this.myLoc.y+1)).contains(Map.Type.PACMAN)) {
+			return true;
+		}
+		if (this.myMap.getLoc(new Location(this.myLoc.x+1,this.myLoc.y-1)).contains(Map.Type.PACMAN)) {
+			return true;
+		}
 		return false;
 	}
 
 	public boolean attack() {
 		if (is_pacman_in_range()) {
-			return true;
+			return myMap.attack(myName);
 		}
 		return false;
 	}

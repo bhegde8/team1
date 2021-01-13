@@ -1,11 +1,12 @@
 import java.util.HashSet;
+import java.util.Map;
 import java.util.ArrayList;
 import javax.swing.JComponent;
 
 public class PacMan{
 	String myName;
 	Location myLoc;
-	Map myMap;
+	Map<K, V> myMap;
 	Location shift; 
 
 	public PacMan(String name, Location loc, Map map) {
@@ -21,10 +22,15 @@ public class PacMan{
 		moves.add(new Location(this.myLoc.x + 1, this.myLoc.y));
 		moves.add(new Location(this.myLoc.x, this.myLoc.y - 1));
 		moves.add(new Location(this.myLoc.x, this.myLoc.y + 1));
+		moves.add(new Location(this.myLoc.x - 1, this.myLoc.y - 1));
+		moves.add(new Location(this.myLoc.x + 1, this.myLoc.y + 1));
+		moves.add(new Location(this.myLoc.x + 1, this.myLoc.y - 1));
+		moves.add(new Location(this.myLoc.x - 1, this.myLoc.y + 1));
 			
 		for (Location move: moves) {
 			if (this.myMap.getLoc(move).contains(Map.Type.EMPTY) || 
-					this.myMap.getLoc(move).contains(Map.Type.COOKIE)) {
+				(this.myMap.getLoc(move).contains(Map.Type.COOKIE) &&
+						(!this.myMap.getLoc(move).contains(Map.Type.GHOST))) {
 					valid_moves.add(move);
 				}
 			}
@@ -37,7 +43,7 @@ public class PacMan{
 			return false;
 		}
 		myLoc = locs.get(0);
-		return true;
+		return myMap.move(myName, myLoc, myMap.Type.PACMAN);
 	}
 
 	public boolean is_ghost_in_range() { 
@@ -51,6 +57,18 @@ public class PacMan{
 			return true;
 		}
 		if (this.myMap.getLoc(new Location(this.myLoc.x, this.myLoc.y - 1)).contains(Map.Type.GHOST)){
+			return true;
+		}
+		if (this.myMap.getLoc(new Location(this.myLoc.x + 1, this.myLoc.y - 1)).contains(Map.Type.GHOST)){
+			return true;
+		}
+		if (this.myMap.getLoc(new Location(this.myLoc.x - 1, this.myLoc.y - 1)).contains(Map.Type.GHOST)){
+			return true;
+		}
+		if (this.myMap.getLoc(new Location(this.myLoc.x - 1, this.myLoc.y + 1)).contains(Map.Type.GHOST)){
+			return true;
+		}
+		if (this.myMap.getLoc(new Location(this.myLoc.x + 1, this.myLoc.y + 1)).contains(Map.Type.GHOST)){
 			return true;
 		}
 		return false;
