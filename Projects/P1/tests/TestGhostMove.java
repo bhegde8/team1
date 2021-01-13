@@ -1,13 +1,13 @@
 import junit.framework.*;
 import java.awt.Color;
 import java.io.*;
+import static org.junit.Assert.*;
 
 public class TestGhostMove extends TestCase {
 
 	public void testGhostMove() throws FileNotFoundException{
 		NoFrame frame = new NoFrame();
-		Ghost ghost = frame.addGhost(new Location(9,11), "ghost1", Color.blue);	
-		PacMan pacman = frame.addPacMan(new Location(7,10));
-		assertTrue(ghost.move());
+		Ghost ghost1 = frame.addGhost(new Location(2,1), "Ghost1", Color.red);
+		assertTrue(ghost1.move());
 	}
 }
