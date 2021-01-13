@@ -1,12 +1,11 @@
 import java.util.HashSet;
-import java.util.Map;
 import java.util.ArrayList;
 import javax.swing.JComponent;
 
 public class PacMan{
 	String myName;
 	Location myLoc;
-	Map<K, V> myMap;
+	Map myMap;
 	Location shift; 
 
 	public PacMan(String name, Location loc, Map map) {
@@ -29,8 +28,8 @@ public class PacMan{
 			
 		for (Location move: moves) {
 			if (this.myMap.getLoc(move).contains(Map.Type.EMPTY) || 
-				(this.myMap.getLoc(move).contains(Map.Type.COOKIE) &&
-						(!this.myMap.getLoc(move).contains(Map.Type.GHOST))) {
+				((this.myMap.getLoc(move).contains(Map.Type.COOKIE)) && 
+						(!this.myMap.getLoc(move).contains(Map.Type.GHOST)))) {
 					valid_moves.add(move);
 				}
 			}
@@ -39,11 +38,20 @@ public class PacMan{
 
 	public boolean move() {
 		ArrayList<Location> locs = get_valid_moves();
-		if (locs.isEmpty()){
+		if (locs.size() == 0){
 			return false;
 		}
-		myLoc = locs.get(0);
-		return myMap.move(myName, myLoc, myMap.Type.PACMAN);
+
+		while (locs.size() > 0) {
+			myLoc = locs.get(0);
+
+			if (myMap.move(myName, myLoc, Map.Type.PACMAN) == false) {
+				locs.remove(myLoc);
+			} else {
+				return true;
+			}	
+		}
+		return false;
 	}
 
 	public boolean is_ghost_in_range() { 

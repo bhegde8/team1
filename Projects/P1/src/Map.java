@@ -1,7 +1,6 @@
 import java.util.HashMap;
 import java.util.HashSet;
 import javax.swing.JComponent;
-import javax.tools.DocumentationTool.Location;
 
 public class Map{
 
@@ -56,24 +55,30 @@ public class Map{
 	public boolean move(String name, Location loc, Type type) {
 		//update locations, components, and field
 		//use the setLocation method for the component to move it to the new location
-		if (!field.getLoc(loc).contains(WALL)){
-			Location old = locations.get(name);	 
-			if (type == Type.PACMAN){
+
+		Location old = locations.get(name);	 
+		if (type == Type.PACMAN){
+			if (!getLoc(loc).contains(Type.WALL)){
 				PacMan pacman = new PacMan(name, old, this);
 				locations.put(name, loc);
 				components.get(name).setLocation(loc.x, loc.y);
 				field.get(loc).add(type);  
 				return true;
-			}			
+			}	
+			return false;
+		}		
 
-			if (type == Type.GHOST){
+		if (type == Type.GHOST){
+			if (!getLoc(loc).contains(Type.WALL)){
 				Ghost ghost = new Ghost(name, old, this);
 				locations.put(name, loc);
 				components.get(name).setLocation(loc.x, loc.y);
 				field.get(loc).add(type);  
 				return true;		
 			}
+			return false;
 		}
+
 		return false;	
 	}
 
@@ -88,11 +93,11 @@ public class Map{
 			return emptySet;
 		}
 
-		if (loc.size() == 0) {
+		if (field.get(loc).size() == 0) {
 			field.get(loc).add(Type.EMPTY);
 		}
 
-		return field.get(loc)
+		return field.get(loc);
 	}
 
 	public boolean attack(String Name) {

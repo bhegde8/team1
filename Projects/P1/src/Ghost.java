@@ -1,5 +1,4 @@
 import java.util.HashSet;
-import java.util.Map;
 import java.util.ArrayList;
 
 public class Ghost{
@@ -27,7 +26,7 @@ public class Ghost{
 			
 		for (Location move: moves) {
 			if (this.myMap.getLoc(move).contains(Map.Type.EMPTY) || 
-				(this.myMap.getLoc(move).contains(Map.Type.COOKIE)}
+					this.myMap.getLoc(move).contains(Map.Type.COOKIE)) {
 					valid_moves.add(move);
 				}
 			}
@@ -36,11 +35,21 @@ public class Ghost{
 
 	public boolean move() {
 		ArrayList<Location> locs = get_valid_moves();
-		if (locs.isEmpty()){
+		System.out.println(locs);
+		if (locs.size() == 0){
 			return false;
 		}
-		myLoc = locs.get(0);
-		return myMap.move(myName, myLoc, myMap.Type.GHOST);
+		
+		while (locs.size() > 0) {
+			myLoc = locs.get(0);
+			
+			if (myMap.move(myName, myLoc, Map.Type.GHOST) == false) {
+				locs.remove(myLoc);
+			} else {
+				return true;
+			}
+		}
+		return false;
 	}
 
 	public boolean is_pacman_in_range() { 
