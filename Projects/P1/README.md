@@ -1,18 +1,25 @@
 # PacMan Simulation - Team 1, Project 1
 
 
-Haley Greenspan,*Fill in team names
+Haley Greenspan,Xavier Warmerdam , Vi Nguyen
 
 
 ## Image of code playing PacMan
 
-* An image of your code playing PacMan
+![Pacman game](https://github.com/viving11/CMSC388T-/blob/main/Pacman.png?raw=true)
+
 
 
 ## Instructions on running code
 
-* A section on how to run the code from the command line
-  * include a code block
+To start, run and compile the following files using the following commands and follow the menu:
+
+```bash
+javac -cp "src/" src/*.java
+java -cp "src/" StartMenu
+```
+
+  
 
 
 ## Function & Test descriptions
