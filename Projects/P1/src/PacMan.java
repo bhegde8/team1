@@ -43,7 +43,7 @@ public class PacMan{
 		if (locs.size() == 0){
 			return false;
 		}
-		Location loc = locs.get(0);
+		
 		return myMap.move(myName, loc, Map.Type.PACMAN);
 
 	}
