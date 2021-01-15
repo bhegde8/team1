@@ -1,10 +1,11 @@
-import java.awt.Color;
 import junit.framework.*;
-import org.junit.Assert.*;
+import java.awt.Color;
+import java.io.*;
+import static org.junit.Assert.*;
 
 public class TestMapAttack {
 
-	public void testMapAttack() {
+	public void testMapAttack() throws FileNotFoundException{
 		NoFrame frame = new NoFrame();
 		Map mymap = frame.getMap();
 		PacMan pacman = frame.addPacMan(new Location(1,1));
