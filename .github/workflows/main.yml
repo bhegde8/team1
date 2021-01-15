@@ -28,7 +28,7 @@ jobs:
 
       # Runs a set of commands using the runners shell
       - name: Compile the Code
-        working directory: ./Projects/P1
+        working-directory: ./Projects/P1
         run: |
           javac -cp "src/" src/*.java
 
@@ -38,7 +38,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name:  TestGhostAttack
-        working directory: ./Projects/P1
+        working-directory: ./Projects/P1
         run: |
           javac -cp "tests/junit-4.10.jar:src/:tests/" src/*.java tests/*.java
           java -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestGhostAttack
@@ -49,7 +49,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: TestPacManConsume
-        working directory: ./Projects/P1
+        working-directory: ./Projects/P1
         run: |
           javac -cp "tests/junit-4.10.jar:src/:tests/" src/*.java tests/*.java
           java -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestPacManConsume
@@ -60,6 +60,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: TestMapEatCookie
+        working-directory: ./Projects/P1
         run: |
           javac -cp "tests/junit-4.10.jar:src/:tests/" src/*.java tests/*.java
           java -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestMapEatCookie
