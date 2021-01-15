@@ -32,35 +32,60 @@ jobs:
         run: |
           javac -cp "src/" src/*.java
 
-  TestGhostAttack:
-    runs-on: ubuntu-latest
-    container: openjdk
-    steps:
-      - uses: actions/checkout@v2
-      - name:  TestGhostAttack
-        working-directory: ./Projects/P1
-        run: |
           javac -cp "tests/junit-4.10.jar:src/:tests/" src/*.java tests/*.java
-          java -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestAttack
 
-  TestPacManConsume:
+# *** Vi Nguyen's Test ***
+# TestMapMove 
+  TestMapMove:
+    # The type of runner that the job will run on
     runs-on: ubuntu-latest
     container: openjdk
-    steps:
-      - uses: actions/checkout@v2
-      - name: TestPacManConsume
-        working-directory: ./Projects/P1
-        run: |
-          javac -cp "tests/junit-4.10.jar:src/:tests/" src/*.java tests/*.java
-          java -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestConsume
 
-  TestMapEatCookie:
-    runs-on: ubuntu-latest
-    container: openjdk
+    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      - name: TestMapEatCookie
+
+      - name: TestMapMove
         working-directory: ./Projects/P1
         run: |
+          javac -cp "src/" src/*.java
           javac -cp "tests/junit-4.10.jar:src/:tests/" src/*.java tests/*.java
-          java -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestMapEatCookie
+          java -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestMapMove
+
+# TestMapGetLoc 
+  TestMapGetLoc:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+    container: openjdk
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
+      - name: TestMapGetLoc
+        working-directory: ./Projects/P1
+        run: |
+          javac -cp "src/" src/*.java
+          javac -cp "tests/junit-4.10.jar:src/:tests/" src/*.java tests/*.java
+          java -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestMapGetLoc
+          
+# TestMapAttack 
+  TestMapAttack:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+    container: openjdk
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
+      - name: TestMapAttack
+        working-directory: ./Projects/P1
+        run: |
+          javac -cp "src/" src/*.java
+          javac -cp "tests/junit-4.10.jar:src/:tests/" src/*.java tests/*.java
+          java -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestMapAttack
+
