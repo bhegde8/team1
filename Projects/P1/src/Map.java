@@ -89,7 +89,7 @@ public class Map{
 			return wallSet;
 		}
 
-		if (!field.containsKey(loc) || field.get(loc).size()==0) {
+		if (!field.containsKey(loc)) {
 			return emptySet;
 		}
 
@@ -99,8 +99,7 @@ public class Map{
 	public boolean attack(String Name) {
 		//update gameOver
 		Location loc = locations.get(Name);
-		Ghost gh = new Ghost(Name, loc, this);
-		gameOver = true; 	
+		Ghost gh = new Ghost(Name, loc, this);	
 		return true;
 		
 	}
