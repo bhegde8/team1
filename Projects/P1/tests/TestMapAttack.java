@@ -1,5 +1,5 @@
-import java.awt.Color;
 import junit.framework.*;
+import java.awt.Color;
 import java.io.*;
 import static org.junit.Assert.*;
 
