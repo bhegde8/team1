@@ -34,7 +34,6 @@ jobs:
           javac -cp "tests/junit-4.10.jar:src/:tests/" src/*.java tests/*.java
 
 # *** Vi Nguyen's Test *** 
-
  TestMapMove:
   runs-on: ubuntu-latest
   container: openjdk
