@@ -24,11 +24,12 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
+       - name: Compile the Code
+       uses: actions/checkout@v2
 
       # Runs a set of commands using the runners shell
-      - name: Compile the Code
-      - working directory: ./Projects/P1
+     
+       working directory: ./Projects/P1
         run: |
           javac -cp "src/" src/*.java
           javac -cp "tests/junit-4.10.jar:src/:tests/" src/*.java tests/*.java
@@ -42,10 +43,11 @@ jobs:
 
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-          - uses: actions/checkout@v2
+          - name: TestMapMove
+           uses: actions/checkout@v2
 
           # Runs a set of commands using the runners shell
-          - name: TestMapMove
+         
            working directory: ./Projects/P1
             run: |
               javac -cp "src/" src/*.java
@@ -60,10 +62,11 @@ jobs:
 
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-          - uses: actions/checkout@v2
+          - name: TestMapGetLoc
+          uses: actions/checkout@v2
 
           # Runs a set of commands using the runners shell
-          - name: TestMapGetLoc
+         
            working directory: ./Projects/P1
             run: |
               javac -cp "src/" src/*.java
@@ -78,10 +81,11 @@ jobs:
 
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-          - uses: actions/checkout@v2
+          - name: TestMapAttack
+           uses: actions/checkout@v2
 
           # Runs a set of commands using the runners shell
-          - name: TestMapAttack
+          
            working directory: ./Projects/P1
             run: |
               javac -cp "src/" src/*.java
