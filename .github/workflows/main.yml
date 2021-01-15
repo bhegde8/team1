@@ -41,7 +41,7 @@ jobs:
         working-directory: ./Projects/P1
         run: |
           javac -cp "tests/junit-4.10.jar:src/:tests/" src/*.java tests/*.java
-          java -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestGhostAttack
+          java -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestAttack
 
   TestPacManConsume:
     runs-on: ubuntu-latest
@@ -52,7 +52,7 @@ jobs:
         working-directory: ./Projects/P1
         run: |
           javac -cp "tests/junit-4.10.jar:src/:tests/" src/*.java tests/*.java
-          java -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestPacManConsume
+          java -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestConsume
 
   TestMapEatCookie:
     runs-on: ubuntu-latest
