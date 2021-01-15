@@ -33,106 +33,59 @@ jobs:
           javac -cp "src/" src/*.java
           javac -cp "tests/junit-4.10.jar:src/:tests/" src/*.java tests/*.java
           
-    TestGhostMove:
-
-      # The type of runner that the job will run on
-
-      runs-on: ubuntu-latest
-
-      container: openjdk
+          
+# *** Xavier's Tests ***
 
 
+  TestGhostMove:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+    container: openjdk
 
-      # Steps represent a sequence of tasks that will be executed as part of the job
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
 
-      steps:
+      - name: TestGhostMove
+        working-directory: ./Projects/P1
+        run: |
+          javac -cp "src/" src/*.java
+          javac -cp "tests/junit-4.10.jar:src/:tests/" src/*.java tests/*.java
+          java -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestGhostMove
 
-        # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+  TestPacManMove:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+    container: openjdk
 
-        - uses: actions/checkout@v2
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
 
+      - name: TestPacManMove
+        working-directory: ./Projects/P1
+        run: |
+          javac -cp "src/" src/*.java
+          javac -cp "tests/junit-4.10.jar:src/:tests/" src/*.java tests/*.java
+          java -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestPacManMove
+          
 
+  TestGhostValidMoves:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+    container: openjdk
 
-        - name: TestGhostMove
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
 
-          working-directory: ./Projects/P1
-
-          run: |
-
-            javac -cp "src/" src/*.java
-
-            javac -cp "tests/junit-4.10.jar:src/:tests/" src/*.java tests/*.java
-
-            java -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestGhostMove
-
-
-
-    TestPacManMove:
-
-      # The type of runner that the job will run on
-
-      runs-on: ubuntu-latest
-
-      container: openjdk
-
-
-
-      # Steps represent a sequence of tasks that will be executed as part of the job
-
-      steps:
-
-        # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-
-        - uses: actions/checkout@v2
-
-
-
-        - name: TestPacManMove
-
-          working-directory: ./Projects/P1
-
-          run: |
-
-            javac -cp "src/" src/*.java
-
-            javac -cp "tests/junit-4.10.jar:src/:tests/" src/*.java tests/*.java
-
-            java -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestPacManMove
-
-            
-
-
-
-    TestGhostValidMoves:
-
-      # The type of runner that the job will run on
-
-      runs-on: ubuntu-latest
-
-      container: openjdk
-
-
-
-      # Steps represent a sequence of tasks that will be executed as part of the job
-
-      steps:
-
-        # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-
-        - uses: actions/checkout@v2
-
-
-
-        - name: TestGhostValidMoves
-
-          working-directory: ./Projects/P1
-
-          run: |
-
-            javac -cp "src/" src/*.java
-
-            javac -cp "tests/junit-4.10.jar:src/:tests/" src/*.java tests/*.java
-
-            java -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestGhostValidMoves
-
+      - name: TestGhostValidMoves
+        working-directory: ./Projects/P1
+        run: |
+          javac -cp "src/" src/*.java
+          javac -cp "tests/junit-4.10.jar:src/:tests/" src/*.java tests/*.java
+          java -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestGhostValidMoves
 
