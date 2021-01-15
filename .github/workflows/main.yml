@@ -42,5 +42,24 @@ jobs:
         run: |
           javac -cp "tests/junit-4.10.jar:src/:tests/" src/*.java tests/*.java
           java -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestPacManValidMoves
+  TestGhostInRange:
+    runs-on: ubuntu-latest
+    container: openjdk
+    steps:
+      - uses: actions/checkout@v2
+      - name: TestGhostInRange
+        working-directory: ./Projects/P1
+        run: |
+          javac -cp "tests/junit-4.10.jar:src/:tests/" src/*.java tests/*.java
+          java -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestGhostInRange
           
-  
+  TestPacManInRange:
+    runs-on: ubuntu-latest
+    container: openjdk
+    steps:
+      - uses: actions/checkout@v2
+      - name: TestPacManInRange
+        working-directory: ./Projects/P1
+        run: |
+          javac -cp "tests/junit-4.10.jar:src/:tests/" src/*.java tests/*.java
+          java -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestPacManInRange
