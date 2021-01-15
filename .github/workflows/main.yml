@@ -28,5 +28,19 @@ jobs:
 
       # Runs a set of commands using the runners shell
       - name: Compile the Code
+        working-directory: ./Projects/P1
         run: |
           javac -cp "src/" src/*.java
+          
+  TestPacManValidMoves:
+    runs-on: ubuntu-latest
+    container: openjdk
+    steps:
+      - uses: actions/checkout@v2
+      - name:  TestPacManValidMoves
+        working-directory: ./Projects/P1
+        run: |
+          javac -cp "tests/junit-4.10.jar:src/:tests/" src/*.java tests/*.java
+          java -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestPacManValidMoves
+          
+  
