@@ -26,9 +26,7 @@ public class Ghost{
 		moves.add(new Location(this.myLoc.x - 1, this.myLoc.y + 1));
 			
 		for (Location move: moves) {
-			if ((this.myMap.getLoc(move).contains(Map.Type.EMPTY)) || 
-					(this.myMap.getLoc(move).contains(Map.Type.COOKIE)) ||
-					(this.myMap.getLoc(move).contains(Map.Type.GHOST))) {
+			if ((this.myMap.getLoc(move).contains(Map.Type.WALL))) {
 					valid_moves.add(move);
 				}
 			}
@@ -41,7 +39,7 @@ public class Ghost{
 		if (locs.size() == 0){
 			return false;
 		}
-		Location loc = locs.get(0);
+		
 		return myMap.move(myName, loc, Map.Type.GHOST);
 
 	}
