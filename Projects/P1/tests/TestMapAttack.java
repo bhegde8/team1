@@ -1,5 +1,5 @@
-import junit.framework.*;
 import java.awt.Color;
+import junit.framework.*;
 import java.io.*;
 import static org.junit.Assert.*;
 
@@ -15,4 +15,3 @@ public class TestMapAttack extends TestCase{
 		
 	}
 }
-
