@@ -61,8 +61,7 @@ public class Map{
 			if (!getLoc(loc).contains(Type.WALL)){
 				PacMan pacman = new PacMan(name, old, this);
 				locations.put(name, loc);
-				components.get(name).setLocation(loc.x, loc.y);
-				field.get(loc).add(type);  
+				components.get(name).setLocation(loc.x, loc.y); 
 				return true;
 			}	
 			return false;
@@ -72,8 +71,7 @@ public class Map{
 			if (!getLoc(loc).contains(Type.WALL)){
 				Ghost ghost = new Ghost(name, old, this);
 				locations.put(name, loc);
-				components.get(name).setLocation(loc.x, loc.y);
-				field.get(loc).add(type);  
+				components.get(name).setLocation(loc.x, loc.y); 
 				return true;		
 			}
 			return false;
