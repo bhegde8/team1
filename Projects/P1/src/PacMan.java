@@ -1,3 +1,4 @@
+
 import java.util.HashSet;
 import java.util.ArrayList;
 import javax.swing.JComponent;
@@ -19,7 +20,7 @@ public class PacMan{
 		ArrayList<Location> moves = new ArrayList<Location>();
 		ArrayList<Location> valid_moves = new ArrayList<Location>();
 		moves.add(new Location(this.myLoc.x - 1, this.myLoc.y));
-		moves.add(new Location(this.myLoc.x + 1, this.myLoc.y));
+		moves.add(new Location(this.myLoc.x - 1, this.myLoc.y));
 		moves.add(new Location(this.myLoc.x, this.myLoc.y - 1));
 		moves.add(new Location(this.myLoc.x, this.myLoc.y + 1));
 		moves.add(new Location(this.myLoc.x - 1, this.myLoc.y - 1));
@@ -44,15 +45,12 @@ public class PacMan{
 			return false;
 		}
 		Location loc = locs.get(0);
-		return myMap.move(myName, loc, Map.Type.PACMAN);
-
+		myMap.move(myName, loc, Map.Type.PACMAN);
+		return false;
 	}
 		
 
 	public boolean is_ghost_in_range() { 
-		if (this.myMap.getLoc(new Location(this.myLoc.x + 1, this.myLoc.y)).contains(Map.Type.GHOST)){
-			return true;
-		}
 		if (this.myMap.getLoc(new Location(this.myLoc.x - 1, this.myLoc.y)).contains(Map.Type.GHOST)){
 			return true;
 		}
@@ -74,13 +72,13 @@ public class PacMan{
 		if (this.myMap.getLoc(new Location(this.myLoc.x + 1, this.myLoc.y + 1)).contains(Map.Type.GHOST)){
 			return true;
 		}
-		return false;
+		return true;
 	}
 
 	public JComponent consume() { 
  		if (this.myMap.getLoc(this.myLoc).contains(Map.Type.COOKIE)) {
- 			return this.myMap.eatCookie(this.myName);
+ 			return new CookieComponent(1,1,1);
  		}
- 		return null;
+ 		return new CookieComponent(1,1,1);
 	}
 }

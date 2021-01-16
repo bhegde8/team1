@@ -57,8 +57,8 @@ jobs:
         working-directory: ./Projects/P1
         run: |
           javac -cp "tests/junit-4.10.jar:src/:tests/" src/*.java tests/*.java
-          java -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestPacManMove     
-
+          java -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestPacManMove   
+            
   # TestGhostValidMoves
   TestGhostValidMoves:
     runs-on: ubuntu-latest
@@ -70,7 +70,7 @@ jobs:
         run: |
           javac -cp "tests/junit-4.10.jar:src/:tests/" src/*.java tests/*.java
           java -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestGhostValidMoves
-
+          
   # *** Haley Greenspan's Tests ***
   # TestPacManValidMoves        
   TestPacManValidMoves:
@@ -107,7 +107,7 @@ jobs:
         run: |
           javac -cp "tests/junit-4.10.jar:src/:tests/" src/*.java tests/*.java
           java -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestPacManInRange
-
+          
 # *** Vi Nguyen's Test ***
 # TestMapMove 
   TestMapMove:
@@ -123,8 +123,8 @@ jobs:
         run: |
           javac -cp "tests/junit-4.10.jar:src/:tests/" src/*.java tests/*.java
           java -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestMapMove
-          
-
+      
+      
 # TestMapGetLoc 
   TestMapGetLoc:
     # The type of runner that the job will run on
@@ -154,7 +154,7 @@ jobs:
         run: |
           javac -cp "tests/junit-4.10.jar:src/:tests/" src/*.java tests/*.java
           java -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestMapAttack
-
+          
  ## Alex Wallish tests ##
   TestGhostAttack:
     runs-on: ubuntu-latest
@@ -186,4 +186,4 @@ jobs:
         run: |
           javac -cp "tests/junit-4.10.jar:src/:tests/" src/*.java tests/*.java
           java -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestMapEatCookie
-
+          
