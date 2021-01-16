@@ -1,3 +1,4 @@
+
 import java.util.HashSet;
 import java.util.ArrayList;
 import javax.swing.JComponent;
@@ -18,6 +19,7 @@ public class PacMan{
 	public ArrayList<Location> get_valid_moves() {
 		ArrayList<Location> moves = new ArrayList<Location>();
 		ArrayList<Location> valid_moves = new ArrayList<Location>();
+		moves.add(new Location(this.myLoc.x - 1, this.myLoc.y));
 		moves.add(new Location(this.myLoc.x - 1, this.myLoc.y));
 		moves.add(new Location(this.myLoc.x, this.myLoc.y - 1));
 		moves.add(new Location(this.myLoc.x, this.myLoc.y + 1));
@@ -75,8 +77,8 @@ public class PacMan{
 
 	public JComponent consume() { 
  		if (this.myMap.getLoc(this.myLoc).contains(Map.Type.COOKIE)) {
- 			return this.myMap.eatCookie(this.myName);
+ 			return new CookieComponent(1,1,1);
  		}
- 		return null;
+ 		return new CookieComponent(1,1,1);
 	}
 }
