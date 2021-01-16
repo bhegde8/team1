@@ -61,8 +61,7 @@ public class Map{
 			if (!getLoc(loc).contains(Type.WALL)){
 				PacMan pacman = new PacMan(name, old, this);
 				locations.put(name, loc);
-				components.get(name).setLocation(loc.x, loc.y);
-				field.get(loc).add(type);  
+				components.get(name).setLocation(loc.x, loc.y); 
 				return true;
 			}	
 			return false;
@@ -72,8 +71,7 @@ public class Map{
 			if (!getLoc(loc).contains(Type.WALL)){
 				Ghost ghost = new Ghost(name, old, this);
 				locations.put(name, loc);
-				components.get(name).setLocation(loc.x, loc.y);
-				field.get(loc).add(type);  
+				components.get(name).setLocation(loc.x, loc.y); 
 				return true;		
 			}
 			return false;
@@ -89,7 +87,7 @@ public class Map{
 			return wallSet;
 		}
 
-		if (!field.containsKey(loc) || field.get(loc).size()==0) {
+		if (!field.containsKey(loc)) {
 			return emptySet;
 		}
 
@@ -99,8 +97,7 @@ public class Map{
 	public boolean attack(String Name) {
 		//update gameOver
 		Location loc = locations.get(Name);
-		Ghost gh = new Ghost(Name, loc, this);
-		gameOver = true; 	
+		Ghost gh = new Ghost(Name, loc, this);	
 		return true;
 		
 	}
