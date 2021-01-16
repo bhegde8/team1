@@ -123,7 +123,8 @@ jobs:
         run: |
           javac -cp "tests/junit-4.10.jar:src/:tests/" src/*.java tests/*.java
           java -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestMapMove
-          
+      
+      
 # TestMapGetLoc 
   TestMapGetLoc:
     # The type of runner that the job will run on
