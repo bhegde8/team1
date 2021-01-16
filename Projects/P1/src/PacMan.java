@@ -19,7 +19,7 @@ public class PacMan{
 		ArrayList<Location> moves = new ArrayList<Location>();
 		ArrayList<Location> valid_moves = new ArrayList<Location>();
 		moves.add(new Location(this.myLoc.x - 1, this.myLoc.y));
-		moves.add(new Location(this.myLoc.x - 1, this.myLoc.y));
+		moves.add(new Location(this.myLoc.x + 1, this.myLoc.y));
 		moves.add(new Location(this.myLoc.x, this.myLoc.y - 1));
 		moves.add(new Location(this.myLoc.x, this.myLoc.y + 1));
 		moves.add(new Location(this.myLoc.x - 1, this.myLoc.y - 1));
