@@ -112,6 +112,6 @@ public class Map{
 		String tokid = "tok_x"+loc.x+"_y"+loc.y;
 		field.get(loc).remove(Map.Type.COOKIE);
 		cookies++;
-		return components.get(tokid);
+		return null;
 	}
 }

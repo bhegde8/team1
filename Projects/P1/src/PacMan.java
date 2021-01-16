@@ -1,3 +1,4 @@
+
 import java.util.HashSet;
 import java.util.ArrayList;
 import javax.swing.JComponent;
@@ -18,6 +19,7 @@ public class PacMan{
 	public ArrayList<Location> get_valid_moves() {
 		ArrayList<Location> moves = new ArrayList<Location>();
 		ArrayList<Location> valid_moves = new ArrayList<Location>();
+		moves.add(new Location(this.myLoc.x - 1, this.myLoc.y));
 		moves.add(new Location(this.myLoc.x - 1, this.myLoc.y));
 		moves.add(new Location(this.myLoc.x, this.myLoc.y - 1));
 		moves.add(new Location(this.myLoc.x, this.myLoc.y + 1));
@@ -49,6 +51,9 @@ public class PacMan{
 		
 
 	public boolean is_ghost_in_range() { 
+		if (this.myMap.getLoc(new Location(this.myLoc.x + 1, this.myLoc.y)).contains(Map.Type.GHOST)){
+			return true;
+		}
 		if (this.myMap.getLoc(new Location(this.myLoc.x - 1, this.myLoc.y)).contains(Map.Type.GHOST)){
 			return true;
 		}
