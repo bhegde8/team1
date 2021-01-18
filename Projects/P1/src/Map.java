@@ -117,7 +117,9 @@ public class Map {
 			field.get(loc).remove(Type.COOKIE);
 			locations.remove(tokid);
 			cookies++;
-			return components.remove(tokid)
+
+			return components.remove(tokid);
+
 		} else {
 			return null;
 		}
