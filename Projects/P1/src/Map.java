@@ -92,12 +92,17 @@ public class Map {
 		return field.get(loc);
 	}
 
-	public boolean attack(String Name) {
+	public boolean attack(String name) {
 		// update gameOver
-		Location loc = locations.get(Name);
-		Ghost gh = new Ghost(Name, loc, this);
-		return true;
+		Location loc = locations.get(name);
+		Ghost gh = new Ghost(name, loc, this);
 
+		if (gh.is_pacman_in_range()) {
+			gameOver = true;
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	public JComponent eatCookie(String name) {
