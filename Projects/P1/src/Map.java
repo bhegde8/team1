@@ -93,16 +93,18 @@ public class Map {
 	}
 
 	public boolean attack(String name) {
-		// update gameOver
-		Location loc = locations.get(name);
-		Ghost gh = new Ghost(name, loc, this);
+		if (locations.containsKey(name)) {
+			Location loc = locations.get(name);
+			Ghost gh = new Ghost(name, loc, this);
 
-		if (gh.is_pacman_in_range()) {
-			gameOver = true;
-			return true;
-		} else {
-			return false;
+			if (gh.is_pacman_in_range()) {
+				// update gameOver
+				gameOver = true;
+				return true;
+			}
 		}
+
+		return false;
 	}
 
 	public JComponent eatCookie(String name) {
