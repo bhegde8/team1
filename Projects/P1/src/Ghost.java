@@ -42,6 +42,7 @@ public class Ghost {
 			return false;
 		}
 		Location loc = locs.get(0);
+		
 		return myMap.move(myName, loc, Map.Type.GHOST);
 
 	}
