@@ -43,33 +43,38 @@ public class PacMan {
 			return false;
 		}
 		Location loc = locs.get(0);
-		myMap.move(myName, loc, Map.Type.PACMAN);
-		return false;
+		return myMap.move(myName, loc, Map.Type.PACMAN);
 	}
 
 	public boolean is_ghost_in_range() {
-		if (this.myMap.getLoc(new Location(this.myLoc.x - 1, this.myLoc.y)).contains(Map.Type.GHOST)) {
-			return true;
-		}
-		if (this.myMap.getLoc(new Location(this.myLoc.x, this.myLoc.y + 1)).contains(Map.Type.GHOST)) {
-			return true;
-		}
-		if (this.myMap.getLoc(new Location(this.myLoc.x, this.myLoc.y - 1)).contains(Map.Type.GHOST)) {
-			return true;
-		}
-		if (this.myMap.getLoc(new Location(this.myLoc.x + 1, this.myLoc.y - 1)).contains(Map.Type.GHOST)) {
-			return true;
-		}
 		if (this.myMap.getLoc(new Location(this.myLoc.x - 1, this.myLoc.y - 1)).contains(Map.Type.GHOST)) {
+			return true;
+		}
+		if (this.myMap.getLoc(new Location(this.myLoc.x - 1, this.myLoc.y)).contains(Map.Type.GHOST)) {
 			return true;
 		}
 		if (this.myMap.getLoc(new Location(this.myLoc.x - 1, this.myLoc.y + 1)).contains(Map.Type.GHOST)) {
 			return true;
 		}
+		if (this.myMap.getLoc(new Location(this.myLoc.x, this.myLoc.y - 1)).contains(Map.Type.GHOST)) {
+			return true;
+		}
+		if (this.myMap.getLoc(new Location(this.myLoc.x, this.myLoc.y)).contains(Map.Type.GHOST)) {
+			return true;
+		}
+		if (this.myMap.getLoc(new Location(this.myLoc.x, this.myLoc.y + 1)).contains(Map.Type.GHOST)) {
+			return true;
+		}
+		if (this.myMap.getLoc(new Location(this.myLoc.x + 1, this.myLoc.y - 1)).contains(Map.Type.GHOST)) {
+			return true;
+		}
+		if (this.myMap.getLoc(new Location(this.myLoc.x + 1, this.myLoc.y)).contains(Map.Type.GHOST)) {
+			return true;
+		}
 		if (this.myMap.getLoc(new Location(this.myLoc.x + 1, this.myLoc.y + 1)).contains(Map.Type.GHOST)) {
 			return true;
 		}
-		return true;
+		return false;
 	}
 
 	public JComponent consume() {

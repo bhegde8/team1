@@ -85,19 +85,26 @@ public class Map {
 			return wallSet;
 		}
 
-		if (!field.containsKey(loc)) {
+		if (!field.containsKey(loc) || field.get(loc).size()==0) {
 			return emptySet;
 		}
 
 		return field.get(loc);
 	}
 
-	public boolean attack(String Name) {
-		// update gameOver
-		Location loc = locations.get(Name);
-		Ghost gh = new Ghost(Name, loc, this);
-		return true;
+	public boolean attack(String name) {
+		if (locations.containsKey(name)) {
+			Location loc = locations.get(name);
+			Ghost gh = new Ghost(name, loc, this);
 
+			if (gh.is_pacman_in_range()) {
+				// update gameOver
+				gameOver = true;
+				return true;
+			}
+		}
+
+		return false;
 	}
 
 	public JComponent eatCookie(String name) {
@@ -110,7 +117,9 @@ public class Map {
 			field.get(loc).remove(Type.COOKIE);
 			locations.remove(tokid);
 			cookies++;
+
 			return components.remove(tokid);
+
 		} else {
 			return null;
 		}
